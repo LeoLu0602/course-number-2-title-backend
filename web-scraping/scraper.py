@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
 
 class Scraper:
   def __init__(self):
@@ -22,12 +23,13 @@ class Scraper:
         ])
 
       print('[get_courses] Done!')
-      print(self.courses[-1])
       
       return
     
     print('[get_courses] Mismatch!')
 
   def save(self, path):
-    pass
-
+    header = ['school', 'department', 'course_number', 'course_title']
+    df = pd.DataFrame(self.courses, columns=header)
+    df.to_csv(path, index=False)
+  
