@@ -18,7 +18,9 @@ const supabase_js_1 = require("@supabase/supabase-js");
 require("dotenv/config");
 const PORT = 3001;
 const app = (0, express_1.default)();
+const cors = require('cors');
 const supabase = (0, supabase_js_1.createClient)((_a = process.env.SUPABASE_URL) !== null && _a !== void 0 ? _a : '', (_b = process.env.SUPABASE_KEY) !== null && _b !== void 0 ? _b : '');
+app.use(cors());
 app.get('/api/v1/courses', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { school, department, courseNumber } = req.query;
     const courseTitle = yield getCourseTitle(school, department, courseNumber);

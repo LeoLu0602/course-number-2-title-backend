@@ -3,13 +3,14 @@ import { PostgrestError, createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
 
 const PORT: number = 3001;
-
 const app = express();
-
+const cors = require('cors');
 const supabase = createClient(
   process.env.SUPABASE_URL ?? '',
   process.env.SUPABASE_KEY ?? ''
 );
+
+app.use(cors());
 
 app.get('/api/v1/courses', async (req, res) => {
   const { school, department, courseNumber } = req.query;
