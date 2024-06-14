@@ -2,7 +2,7 @@ import express from 'express';
 import { PostgrestError, createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
 
-const PORT: number = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const cors = require('cors');
 const supabase = createClient(

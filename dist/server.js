@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const supabase_js_1 = require("@supabase/supabase-js");
 require("dotenv/config");
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = (0, express_1.default)();
 const cors = require('cors');
 const supabase = (0, supabase_js_1.createClient)((_a = process.env.SUPABASE_URL) !== null && _a !== void 0 ? _a : '', (_b = process.env.SUPABASE_KEY) !== null && _b !== void 0 ? _b : '');
